@@ -19,8 +19,8 @@ def main():
             ch = float(row[4])
             cr = float(row[3])*ch
             
-            if (list(filter(lambda x : x.id == id, students))) == []: #Student not in list yet
-               newStudent = Student(id, major) #Student (id, major)
+            if (list(filter(lambda x : x.id == id, students))) == []:
+               newStudent = Student(id, major)
                students.append(newStudent)
                newElement = True
 
