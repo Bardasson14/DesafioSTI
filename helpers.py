@@ -10,6 +10,10 @@ def getAvgCR(major_id, students, majors):
         total += student.cr
     return round(total/len(major_students))
 
+def calculateFinalCR(students):
+    for s in students:
+        s.cr = round(s.cr/s.ch)
+
 def displayStudents(students):
     print("------- O CR dos alunos é: --------")
     for s in students:
@@ -22,3 +26,4 @@ def displayMajors(students, majors):
     sorted_majors = sorted(parsed_majors)
     for i in range(len(sorted_majors)):
         print(sorted_majors[i], ' - ', getAvgCR(sorted_majors[i], students, sorted_majors))
+

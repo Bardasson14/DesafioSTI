@@ -2,12 +2,11 @@ import csv
 from helpers import *
 from student import Student
 
-def main():
-    
+def readFile(fileName):
     students = []
     majors = []
     
-    with open ('notas.csv', newline = '') as dataset:
+    with open (fileName, newline = '') as dataset:
         reader = csv.reader(dataset, delimiter=',')
         next(reader)
 
@@ -18,29 +17,27 @@ def main():
             major = row[2]
             ch = float(row[4])
             cr = float(row[3])*ch
+            i = findStudentIndexByID(id, students)
             
-            if findStudentIndexByID(id, students) == None:
-               newStudent = Student(id, major)
-               students.append(newStudent)
-               newElement = True
-
-            if major not in majors:
-                majors.append(major)
-
-            if (newElement):
+            if i == None:
+                newStudent = Student(id, major)
+                students.append(newStudent)
                 students[-1].cr += cr
                 students[-1].ch += ch 
-
+                
             else:
                 i = findStudentIndexByID(id, students)
                 students[i].cr += cr
                 students[i].ch += ch
+            
+            if major not in majors:
+                majors.append(major)
+    calculateFinalCR(students)
+    return students, majors
 
-    for s in students:
-        s.cr = round(s.cr/s.ch)
-
+def main():
+    students, majors = readFile('notas.csv')
     displayStudents(students)
     displayMajors(students, majors)
-
 
 main()
