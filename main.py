@@ -32,6 +32,7 @@ def readFile(fileName):
             
             if major not in majors:
                 majors.append(major)
+                
     calculateFinalCR(students)
     return students, majors
 
