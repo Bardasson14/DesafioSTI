@@ -11,8 +11,7 @@ def readFile(fileName):
         next(reader)
 
         for row in reader:
-            newElement = False
-
+            
             id = row[0]
             major = row[2]
             ch = float(row[4])
@@ -32,13 +31,18 @@ def readFile(fileName):
             
             if major not in majors:
                 majors.append(major)
-                
+
     calculateFinalCR(students)
     return students, majors
 
 def main():
-    students, majors = readFile('notas.csv')
-    displayStudents(students)
-    displayMajors(students, majors)
+
+    try:
+        students, majors = readFile('notas.csv')
+        displayStudents(students)
+        displayMajors(students, majors)
+    
+    except FileNotFoundError:
+        print('Erro: não foi possível encontrar o arquivo')
 
 main()
