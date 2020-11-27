@@ -3,7 +3,7 @@ def findStudentIndexByID (id, students):
         if students[i].id == id:
             return i
 
-def getAvgCR(major_id, students, majors):
+def getAvgCR(major_id, students):
     major_students = [s for s in students if s.major == major_id]
     total = 0
     for student in major_students:
@@ -25,5 +25,5 @@ def displayMajors(students, majors):
     parsed_majors = list(map(int, majors))
     sorted_majors = sorted(parsed_majors)
     for i in range(len(sorted_majors)):
-        print(sorted_majors[i], ' - ', getAvgCR(str(sorted_majors[i]), students, sorted_majors))
+        print(sorted_majors[i], ' - ', getAvgCR(str(sorted_majors[i]), students))
 
