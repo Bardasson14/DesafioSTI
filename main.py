@@ -14,8 +14,8 @@ def readFile(fileName):
             
             id = row[0]
             major = row[2]
-            ch = float(row[4])
-            cr = float(row[3])*ch
+            ch = int(row[4])
+            cr = int(row[3])*ch
             i = findStudentIndexByID(id, students)
             
             if i == None:
