@@ -1,2 +1,2 @@
 # DesafioSTI
-Solução para o desafio 3 proposto no PS do STI-UFF
+Minha solução para o desafio proposto no PS do STI-UFF
